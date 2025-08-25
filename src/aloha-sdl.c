@@ -4,7 +4,6 @@
 
 #include <SDL3/SDL.h>
 
-#define EXIT_SDL_ERROR 3
 #define WINDOW_DEFAULT_TITLE "Aloha, SDL!"
 #define WINDOW_DEFAULT_WIDTH 320
 #define WINDOW_DEFAULT_HEIGHT 240
@@ -16,12 +15,12 @@ int main(int argc, char **argv) {
 
   if (!SDL_Init(SDL_INIT_VIDEO)) {
     SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Could not initialize SDL: %s", SDL_GetError());
-    return EXIT_SDL_ERROR;
+    return SDL_APP_FAILURE;
   }
 
   if (!SDL_CreateWindowAndRenderer(WINDOW_DEFAULT_TITLE, WINDOW_DEFAULT_WIDTH, WINDOW_DEFAULT_HEIGHT, SDL_WINDOW_RESIZABLE, &window, &renderer)) {
     SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Could not create window and renderer: %s", SDL_GetError());
-    return EXIT_SDL_ERROR;
+    return SDL_APP_FAILURE;
   }
 
   printf("Aloha from SDL2!\n");
