@@ -10,7 +10,6 @@
 int main(int argc, char **argv) {
   SDL_Window *window;
   SDL_Renderer *renderer;
-  SDL_Surface *surface;
   SDL_Event event;
 
   if (0 != SDL_Init(SDL_INIT_VIDEO)) {
