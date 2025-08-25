@@ -11,7 +11,7 @@
 int main(int argc, char **argv) {
   SDL_Window *window;
   SDL_Renderer *renderer;
-  SDL_Event *event;
+  SDL_Event event; // union of Uint32
 
   if (0 != SDL_Init(SDL_INIT_VIDEO)) {
     SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Could not initialize SDL: %s", SDL_GetError());
@@ -26,8 +26,8 @@ int main(int argc, char **argv) {
   printf("Aloha from SDL2!\n");
 
   while (true) {
-    SDL_PollEvent(event);
-    if (event->type == SDL_QUIT) {
+    SDL_PollEvent(&event);
+    if (event.type == SDL_QUIT) {
       break;
     }
     SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0x00);
