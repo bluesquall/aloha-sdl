@@ -21,6 +21,8 @@ package manager, i.e.,
 ```
 pip3 install --user meson
 ```
+alternatively, install SDL2 with your package manager, and `meson` should
+detect that and avoid building the dependency subproject itself.
 _____________
 
 [meson-gui-tutorial]: https://mesonbuild.com/GuiTutorial.html
