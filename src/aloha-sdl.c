@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "SDL.h"
+#include <SDL3/SDL.h>
 
 #define EXIT_SDL_ERROR 3
 #define WINDOW_DEFAULT_WIDTH 320
@@ -13,12 +13,12 @@ int main(int argc, char **argv) {
   SDL_Renderer *renderer;
   SDL_Event event; // union of Uint32
 
-  if (0 != SDL_Init(SDL_INIT_VIDEO)) {
+  if (!SDL_Init(SDL_INIT_VIDEO)) {
     SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Could not initialize SDL: %s", SDL_GetError());
     return EXIT_SDL_ERROR;
   }
 
-  if (0 != SDL_CreateWindowAndRenderer(WINDOW_DEFAULT_WIDTH, WINDOW_DEFAULT_HEIGHT, SDL_WINDOW_RESIZABLE, &window, &renderer)) {
+  if (!SDL_CreateWindowAndRenderer(WINDOW_DEFAULT_WIDTH, WINDOW_DEFAULT_HEIGHT, SDL_WINDOW_RESIZABLE, &window, &renderer)) {
     SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Could not create window and renderer: %s", SDL_GetError());
     return EXIT_SDL_ERROR;
   }
