@@ -7,7 +7,7 @@ int main(int argc, char **argv) {
   SDL_Window *window;
   SDL_Renderer *renderer;
   SDL_Surface *surface;
-  SDL_Event *event;
+  SDL_Event event;
 
   if (SDL_Init(SDL_INIT_VIDEO) < 0) {
     SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Could not initialize SDL: %s", SDL_GetError());
